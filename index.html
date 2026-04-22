@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecOps Testing Portal</title>
+    <style>
+        :root {
+            --primary: #0051ad;
+            --dark: #1a1a1a;
+            --success: #28a745;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+        }
+        .logo-circle {
+            width: 80px;
+            height: 80px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            margin: 0 auto 1.5rem;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        h1 { color: var(--dark); margin-bottom: 0.5rem; }
+        p { color: #666; line-height: 1.6; }
+        .status-box {
+            background: #e8f5e9;
+            border: 1px solid var(--success);
+            color: var(--success);
+            padding: 10px;
+            border-radius: 6px;
+            font-weight: 600;
+            margin: 20px 0;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            text-align: left;
+            font-size: 0.9rem;
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        .footer { margin-top: 2rem; font-size: 0.8rem; color: #999; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="logo-circle">SEC</div>
+    <h1>Internal Testing App</h1>
+    <p>This environment is restricted to authorized IP addresses only.</p>
+    
+    <div class="status-box">
+        ● SYSTEM OPERATIONAL
+    </div>
+
+    <div class="info-grid">
+        <div><strong>Environment:</strong> Development</div>
+        <div><strong>Build Version:</strong> 1.0.4-beta</div>
+        <div><strong>Auth Mode:</strong> Cloudflare WAF</div>
+        <div><strong>Timestamp:</strong> <span id="clock"></span></div>
+    </div>
+
+    <div class="footer">
+        &copy; 2026 Your Organization. Unauthorized access is prohibited.
+    </div>
+</div>
+
+<script>
+    function updateClock() {
+        const now = new Date();
+        document.getElementById('clock').innerText = now.toLocaleTimeString();
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+</script>
+
+</body>
+</html>
